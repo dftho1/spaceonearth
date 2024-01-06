@@ -6,11 +6,11 @@ const suggestions = {
         character: ['Famous Actor', 'Historical Figure', 'Superhero', 'Villain'],
         dialogue: ['They call me Sharky', 'I thought you were gone forever!', 'Can you hear that?', 'This is not what it looks like!','I like it as it is','Do it now or never','I feel safe with you','We can’t stop doing the speech','All these cats just want one thing','We didn’t have to do that!','I need to buy some carrots from the market','Were you planning on telling me any time soon?','Socks always go on your feet'],
         quirk: ['Always forgets names of everything', 'Laughs in serious situations', 'Has a secret', 'Afraid of shadows'],
-        beliefs: ['Believes in second chances', 'Thinks all is fair in love and war'],
+        belief: ['Believes in second chances', 'Thinks all is fair in love and war'],
         wants: ['Wants to be acknowledged', 'Seeks the thrill of adventure'],
-        activities: ['Gardening', 'Writing a letter'],
-        movies: ['Jurassic Park', 'Titanic','LA Confidential','Trainspotting','The Fifth Element','A Few Good Men','The Usual Suspects', 'Gattaca', 'Time Cop', 'The English Patient','Sliding Doors','Heat','The Matrix','Pulp Fiction','Fight Club','Goodfellas','The Big Lebowski','American Beauty','Saving Private Ryan','The Lion King','Clueless','Groundhog Day','Braveheart','The Truman Show'],
-        tvshows: ['Cheers','Frasier','Seinfeld','Sex Education','Always Sunny','Breaking Bad','Mad Men','Game of Thrones','The X-Files','Buffy the Vampire Slayer','Freaks & Geeks','The Sopranos','Twin Peaks','ER','Star Trek','Sex and the City','South Park','Oz','NYPD Blue','The West Wing','Stargate SG-1','Northern Exposure','Beverly Hills 90210','The Practice','3rd Rock from the Sun','Ally McBeal','Everybody Loves Raymond','Charmed']
+        activity: ['Gardening', 'Writing a letter'],
+        movie: ['Jurassic Park', 'Titanic','LA Confidential','Trainspotting','The Fifth Element','A Few Good Men','The Usual Suspects', 'Gattaca', 'Time Cop', 'The English Patient','Sliding Doors','Heat','The Matrix','Pulp Fiction','Fight Club','Goodfellas','The Big Lebowski','American Beauty','Saving Private Ryan','The Lion King','Clueless','Groundhog Day','Braveheart','The Truman Show'],
+        tvshow: ['Cheers','Frasier','Seinfeld','Sex Education','Always Sunny','Breaking Bad','Mad Men','Game of Thrones','The X-Files','Buffy the Vampire Slayer','Freaks & Geeks','The Sopranos','Twin Peaks','ER','Star Trek','Sex and the City','South Park','Oz','NYPD Blue','The West Wing','Stargate SG-1','Northern Exposure','Beverly Hills 90210','The Practice','3rd Rock from the Sun','Ally McBeal','Everybody Loves Raymond','Charmed']
     },
     specific: {
         location: ['Library', 'Café', 'Office', 'School'],
@@ -19,11 +19,11 @@ const suggestions = {
         character: ['Famous Actor', 'Historical Figure', 'Superhero', 'Villain'],
         dialogue: ['They call me Sharky', 'I thought you were gone forever!', 'Can you hear that?', 'This is not what it looks like!','I like it as it is','Do it now or never','I feel safe with you','We can’t stop doing the speech','All these cats just want one thing','We didn’t have to do that!','I need to buy some carrots from the market','Were you planning on telling me any time soon?','Socks always go on your feet'],
         quirk: ['Always forgets names of everything', 'Laughs in serious situations', 'Has a secret', 'Afraid of shadows'],
-        beliefs: ['Believes in second chances', 'Thinks all is fair in love and war'],
-        wants: ['Wants to be acknowledged', 'Seeks the thrill of adventure'],
-        activities: ['Gardening', 'Writing a letter'],
-        movies: ['Jurassic Park', 'Titanic','LA Confidential','Trainspotting','The Fifth Element','A Few Good Men','The Usual Suspects', 'Gattaca', 'Time Cop', 'The English Patient','Sliding Doors','Heat','The Matrix','Pulp Fiction','Fight Club','Goodfellas','The Big Lebowski','American Beauty','Saving Private Ryan','The Lion King','Clueless','Groundhog Day','Braveheart','The Truman Show'],
-        tvshows: ['Cheers','Frasier','Seinfeld','Sex Education','Always Sunny','Breaking Bad','Mad Men','Game of Thrones','The X-Files','Buffy the Vampire Slayer','Freaks & Geeks','The Sopranos','Twin Peaks','ER','Star Trek','Sex and the City','South Park','Oz','NYPD Blue','The West Wing','Stargate SG-1','Northern Exposure','Beverly Hills 90210','The Practice','3rd Rock from the Sun','Ally McBeal','Everybody Loves Raymond','Charmed']
+        belief: ['Believes in second chances', 'Thinks all is fair in love and war'],
+        want: ['Wants to be acknowledged', 'Seeks the thrill of adventure'],
+        activity: ['Gardening', 'Writing a letter'],
+        movie: ['Jurassic Park', 'Titanic','LA Confidential','Trainspotting','The Fifth Element','A Few Good Men','The Usual Suspects', 'Gattaca', 'Time Cop', 'The English Patient','Sliding Doors','Heat','The Matrix','Pulp Fiction','Fight Club','Goodfellas','The Big Lebowski','American Beauty','Saving Private Ryan','The Lion King','Clueless','Groundhog Day','Braveheart','The Truman Show'],
+        tvshow: ['Cheers','Frasier','Seinfeld','Sex Education','Always Sunny','Breaking Bad','Mad Men','Game of Thrones','The X-Files','Buffy the Vampire Slayer','Freaks & Geeks','The Sopranos','Twin Peaks','ER','Star Trek','Sex and the City','South Park','Oz','NYPD Blue','The West Wing','Stargate SG-1','Northern Exposure','Beverly Hills 90210','The Practice','3rd Rock from the Sun','Ally McBeal','Everybody Loves Raymond','Charmed']
     },
     wild: {
         location: ['Mars Colony', 'Haunted Mansion', 'Time Machine', 'Invisible City'],
@@ -32,8 +32,8 @@ const suggestions = {
         character: ['Time-traveling detective', 'Rebel leader in a dystopian world', 'Wizard from another realm', 'Alien ambassador'],
         dialogue: ['Is this the future or the past?', 'We need to save the world yesterday!', 'Do you speak telepathically too?', 'I’ve seen things you wouldn’t believe!'],
         quirk: ['A lost tourist who thinks the party is a famous tourist attraction','A character obsessed with finding a hidden treasure they believe is buried under the party location','An extreme environmentalist who thinks everything someone else says is a protest','A medieval knight out of time, upholding chivalry at the party','A character who communicates only through emojis','An overly dramatic soap opera actor','A mad scientist who turns everyday conversations into wacky experiments','A detective who thinks a guest is their arch-nemesis in disguise','A time traveler from the future confused by present-day technology','A spy on a secret mission, mistaking party guests for fellow agents','A vampire trying not to get caught, avoiding garlic and mirrors','An alien disguised as a human, misunderstanding Earth customs','A paranormal investigator on the lookout for ghosts at the party','A chef who can only communicate through cooking metaphors','A conspiracy theorist convinced the party is a cover for a secret meeting','An undercover superhero trying to hide their identity','Teleports when sneezing', 'Turns invisible when anxious', 'Can talk to animals', 'Has a magic wand but it’s broken', 'Thinks everyone else is a robot apart from them', 'Loves food but is disgusted by any food beginning with C','Alien on earth for the first time (amazed by common Earth things)'],
-        beliefs: ['Convinced they’re a reincarnated king', 'Believes cats are alien spies'],
-        wants: ['Desires to invent time travel', 'Wants to climb the tallest mountain on Mars'],
-        activities: ['Building a rocket ship', 'Practicing telepathy with pets']
+        belief: ['Convinced they’re a reincarnated king', 'Believes cats are alien spies'],
+        want: ['Desires to invent time travel', 'Wants to climb the tallest mountain on Mars'],
+        activity: ['Building a rocket ship', 'Practicing telepathy with pets']
     }
 };
