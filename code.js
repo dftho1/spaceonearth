@@ -1,4 +1,4 @@
-/* Test */
+/* Test 2 */
 
 let lastCategory = null;
 let lastFilter = null;
@@ -19,12 +19,28 @@ document.querySelectorAll('input[name="filter"]').forEach(radio => {
 
 document.getElementById('comboModeToggle').addEventListener('change', function() {
     isComboMode = this.checked;
+    updateRefreshButtonText();
     queuedCategories = [];
     currentSuggestions = {};
     clearAllActiveButtons();
     updatePlaceholderText();
     setRefreshButtonState(false);
 });
+
+function updateRefreshButtonText() {
+    const refreshButton = document.querySelector('.new-button');
+    if (isComboMode) {
+        refreshButton.textContent = 'Refresh All';
+    } else {
+        refreshButton.textContent = 'Refresh';
+    }
+}
+window.onload = function() {
+    updatePlaceholderText();
+    setRefreshButtonState(false);
+    lastFilter = document.querySelector('input[name="filter"]:checked').value;
+    updateRefreshButtonText(); // Set initial button text based on the mode
+};
 
 function regenerateComboSuggestions() {
     queuedCategories.forEach(category => {
@@ -171,6 +187,16 @@ function createSuggestionSlot(parentElement, category, addPlusSymbol) {
     }
 
     parentElement.appendChild(suggestionSlot);
+    
+    
+    // Add duplicate button in suggestion slot
+    const duplicateButton = document.createElement('button');
+    duplicateButton.textContent = '+'; // Replace with an icon in CSS
+    duplicateButton.classList.add('duplicate-suggestion-button');
+    duplicateButton.onclick = function() { duplicateCategory(category); };
+    duplicateButton.disabled = queuedCategories.length >= 3;
+
+    suggestionSlot.appendChild(duplicateButton);
 
     // Add '+' symbol
     if (addPlusSymbol) {
@@ -216,5 +242,33 @@ function regenerateLastSuggestion() {
         generateSuggestion(lastCategory);
     } else {
         document.getElementById('suggestions').innerText = 'Please generate a suggestion first.';
+    }
+}
+
+function createCategoryDiv(category) {
+    const categoryDiv = document.createElement('div');
+    categoryDiv.textContent = getCategoryName(category);
+    categoryDiv.classList.add('category-div');
+    categoryDiv.onclick = function() { /* Your existing category selection logic */ };
+
+    // Add duplicate button
+    const duplicateButton = document.createElement('button');
+    duplicateButton.textContent = '+'; // Placeholder, replace with an icon in CSS
+    duplicateButton.classList.add('duplicate-category-button');
+    duplicateButton.onclick = function() { duplicateCategory(category); };
+
+    // Disable duplicate button if no slots available
+    duplicateButton.disabled = queuedCategories.length >= 3;
+
+    categoryDiv.appendChild(duplicateButton);
+    // Append categoryDiv to your category container
+}
+
+function duplicateCategory(category) {
+    if (queuedCategories.length < 3) {
+        // Generate a unique identifier for the duplicated category
+        let newCategory = category + "_dup";
+        queuedCategories.push(newCategory);
+        regenerateComboSuggestions();
     }
 }
