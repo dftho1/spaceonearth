@@ -1,3 +1,5 @@
+/* Test */
+
 let lastCategory = null;
 let lastFilter = null;
 let queuedCategories = [];
