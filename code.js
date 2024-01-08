@@ -143,17 +143,26 @@ function createSuggestionSlot(parentElement, category, addPlusSymbol) {
     if (isComboMode && category) {
         const categoryLabel = document.createElement('div');
         categoryLabel.classList.add('category-label');
-        categoryLabel.textContent = getCategoryName(category); // Function to get the name of the category
+        categoryLabel.textContent = getCategoryName(category);
         parentElement.appendChild(categoryLabel);
     }
 
-    // Create the suggestion slot
-    const suggestionSlot = document.createElement('span');
+    // Create the suggestion slot as a div
+    const suggestionSlot = document.createElement('div');
     suggestionSlot.classList.add('suggestion-slot');
 
     if (category && currentSuggestions[category]) {
-        suggestionSlot.textContent = currentSuggestions[category];
-        suggestionSlot.classList.add('suggestion-text');
+        const suggestionText = document.createElement('span');
+        suggestionText.textContent = currentSuggestions[category];
+        suggestionText.classList.add('suggestion-text');
+        suggestionSlot.appendChild(suggestionText);
+
+        // Add a refresh button within the slot
+        const refreshButton = document.createElement('button');
+        refreshButton.textContent = 'R'; // Placeholder text, to be replaced with an icon in CSS
+        refreshButton.classList.add('refresh-button');
+        refreshButton.onclick = function() { refreshSingleSuggestion(category, suggestionText); };
+        suggestionSlot.appendChild(refreshButton);
     } else {
         // Empty slot will be blank
         suggestionSlot.classList.add('empty-slot');
@@ -168,6 +177,13 @@ function createSuggestionSlot(parentElement, category, addPlusSymbol) {
         plusSpan.textContent = ' + ';
         parentElement.appendChild(plusSpan);
     }
+}
+
+function refreshSingleSuggestion(category, suggestionTextElement) {
+    const items = suggestions[lastFilter][category];
+    const randomIndex = Math.floor(Math.random() * items.length);
+    currentSuggestions[category] = items[randomIndex];
+    suggestionTextElement.textContent = currentSuggestions[category];
 }
 
 function getCategoryName(category) {
